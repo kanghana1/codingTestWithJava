@@ -4,7 +4,7 @@ import java.io.*;
 public class Main {
     static int[] arr;
     static String input;
-    static List<Integer> idxStored = new LinkedList<>();
+    static List<Integer> idxStored = new ArrayList<>();
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         input = br.readLine();
