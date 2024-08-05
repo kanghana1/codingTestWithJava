@@ -9,14 +9,12 @@ public class Main {
 
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken()); // 구해야하는 횟수
-        int[][] origin = new int[N + 1][N + 1];
         int[][] arr = new int[N + 1][N + 1];
 
         for (int i = 1 ; i <= N ; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 1 ; j <= N ; j++) {
-                origin[i][j] = Integer.parseInt(st.nextToken());
-                arr[i][j] = arr[i][j - 1] + origin[i][j];
+                arr[i][j] = arr[i][j - 1] + Integer.parseInt(st.nextToken());
             }
         }
 
