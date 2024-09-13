@@ -1,7 +1,5 @@
 import java.io.*;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
     static int[] count = new int[100001];
@@ -14,14 +12,13 @@ public class Main {
         subin = Integer.parseInt(st.nextToken());
         sister = Integer.parseInt(st.nextToken());
 
-        System.out.println(bfs(subin) - 1);
+        System.out.println(bfs(subin));
     }
 
     public static int bfs(int start) {
         Queue<Integer> queue = new LinkedList<>();
         queue.add(start);
-        int cnt = 1;
-        count[start] = cnt; // 시작지점 1로 설정
+        count[start] = 0;
         while(!queue.isEmpty()) {
             int num = queue.poll();
 
