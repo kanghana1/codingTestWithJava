@@ -39,9 +39,6 @@ public class Main {
                 int MAX = rmMap(max);
                 sb.append(MAX + " " + (countMap.size() > 0 ? rmMap(min) : MAX)).append("\n");
             }
-            min.clear();
-            max.clear();
-            countMap.clear();
         }
 
         System.out.println(sb.toString());
