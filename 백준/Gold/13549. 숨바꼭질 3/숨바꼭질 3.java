@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.*;
-
 public class Main {
     static int[] location = new int[100001];
     static Queue<Integer> queue = new LinkedList<>();
@@ -23,29 +22,17 @@ public class Main {
             int pres = queue.poll();
             if (pres == K) break;
 
-            if (range(pres * 2)) {
-                if (location[pres * 2] == 0) {
-                    location[pres * 2] = location[pres];
-                    queue.add(pres * 2);
-                } else {
-                    location[pres * 2] = Math.min(location[pres * 2], location[pres]);
-                }
+            if (range(pres * 2) && location[pres * 2] == 0) {
+                location[pres * 2] = location[pres];
+                queue.add(pres * 2);
             }
-            if (range(pres + 1)) {
-                if (location[pres + 1] == 0) {
-                    location[pres + 1] = location[pres] + 1;
-                    queue.add(pres + 1);
-                } else {
-                  location[pres + 1] = Math.min(location[pres + 1], location[pres] + 1);
-                }
+            if (range(pres - 1) && location[pres - 1] == 0) {
+                location[pres - 1] = location[pres] + 1;
+                queue.add(pres - 1);
             }
-            if (range(pres - 1)) {
-                if (location[pres - 1] == 0) {
-                    location[pres - 1] = location[pres] + 1;
-                    queue.add(pres - 1);
-                } else {
-                    location[pres - 1] = Math.min(location[pres - 1], location[pres] + 1);
-                }
+            if (range(pres + 1) && location[pres + 1] == 0) {
+                location[pres + 1] = location[pres] + 1;
+                queue.add(pres + 1);
             }
         }
     }
