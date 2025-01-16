@@ -61,11 +61,3 @@ public class Main {
         return i >= 0 && i < Y && j >= 0 && j < X && !isWall[i][j];
     }
 }
-class Node {
-    int y;
-    int x;
-    public Node(int y, int x) {
-        this.y = y;
-        this.x = x;
-    }
-}
