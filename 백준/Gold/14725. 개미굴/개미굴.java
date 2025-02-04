@@ -15,9 +15,12 @@ public class Main {
             for (int j = 0; j < depth; j++) {
                 String name = st.nextToken();
                 current.addChild(name);
-                current = current.children.stream()
-                        .filter(child -> child.value.equals(name))
-                        .findFirst().get();
+//                current = current.children.stream()
+//                        .filter(child -> child.value.equals(name))
+//                        .findFirst().get();
+                for (Node ch : current.children) {
+                    if (ch.value.equals(name)) current = ch;
+                }
             }
         }
         dfs(node,-1);
