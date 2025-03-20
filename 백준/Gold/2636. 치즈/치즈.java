@@ -25,8 +25,8 @@ public class Main {
         }
         isVisit = new boolean[r][c];
         int prevCnt = total;
-        aircheckFirst();
-        int cnt = 1;
+        int cnt = 0;
+        prevCheck.add(new int[]{0, 0});
         while (total > 0) {
             prevCnt = total;
             aircheck();
@@ -54,29 +54,6 @@ public class Main {
             }
         }
         prevCheck = next;
-    }
-
-    private static void aircheckFirst() {
-        Queue<int[]> queue = new ArrayDeque<>();
-        queue.add(new int[]{0, 0});
-        isVisit[0][0] = true;
-        while (!queue.isEmpty()) {
-            int[] idx = queue.poll();
-            int y = idx[0];
-            int x = idx[1];
-            for (int i = 0 ; i < 4 ; i++) {
-                if (canGo(y + dy[i], x + dx[i]))
-                    if (inputs[y + dy[i]][x + dx[i]] == 1) {
-                        isVisit[y + dy[i]][x + dx[i]] = true;
-                        inputs[y + dy[i]][x + dx[i]] = 0;
-                        prevCheck.add(new int[]{y + dy[i], x + dx[i]});
-                        total--;
-                    } else {
-                        isVisit[y + dy[i]][x + dx[i]] = true;
-                        queue.add(new int[]{y + dy[i], x + dx[i]});
-                    }
-            }
-        }
     }
 
     private static boolean canGo(int y, int x) {
