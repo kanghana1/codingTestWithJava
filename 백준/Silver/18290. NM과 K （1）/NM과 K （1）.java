@@ -28,10 +28,6 @@ public class Main {
                 maps[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-        if (N == 1 && M == 1) {
-            System.out.println(maps[0][0]);
-            return;
-        }
         backtracking(0, 0, 0);
         System.out.println(ans);
     }
