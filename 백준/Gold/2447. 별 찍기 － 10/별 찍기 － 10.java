@@ -22,17 +22,14 @@ public class Main {
 
         String[] lines = prev.split("\n");
 
-        // 윗 부분: prev | prev | prev
         for (String line : lines) {
             sb.append(line).append(line).append(line).append("\n");
         }
 
-        // 중간 부분: prev | empty | prev
         for (String line : lines) {
             sb.append(line).append(empty).append(line).append("\n");
         }
 
-        // 아랫 부분: prev | prev | prev
         for (String line : lines) {
             sb.append(line).append(line).append(line).append("\n");
         }
