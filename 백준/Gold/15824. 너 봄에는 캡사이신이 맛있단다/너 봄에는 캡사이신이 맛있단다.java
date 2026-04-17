@@ -10,20 +10,23 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
         int[] arr = new int[N];
+        long[] exp = new long[N];
         fillArray(arr, br);
+        fillExp(exp, N);
 
         long ans = 0;
-        for (int gap = 1 ; gap < N; gap++) {
-            int cntBetween = gap - 1;
-            long cntCase = exp(cntBetween);
-            long sum = 0;
-            for (int i = 0 ; i < N - gap; i++) {
-                int j = i + gap;
-                sum += (arr[j] - arr[i]);
-            }
-            ans = (ans + (sum % MOD) * cntCase % MOD) % MOD;
+        for (int j = 0; j < N; j++) {
+            long coeff = (exp[j] - exp[N - 1 - j] + MOD) % MOD;
+            ans = (ans + coeff * arr[j]) % MOD;
         }
         System.out.println(ans % MOD);
+    }
+
+    private static void fillExp(long[] exp, int N) {
+        exp[0] = 1;
+        for (int i = 1; i < N; i++) {
+            exp[i] = exp[i - 1] * 2 % MOD;
+        }
     }
 
     private static long exp(int n) {
